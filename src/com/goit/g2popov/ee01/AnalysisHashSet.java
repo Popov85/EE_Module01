@@ -8,6 +8,7 @@ import java.util.HashSet;
 public final class AnalysisHashSet extends AnalysisAbstractSet {
 
         public AnalysisHashSet(Object sourceArr[], Object specimen) throws IllegalArgumentException {
-                super(sourceArr, specimen, new HashSet<Object>());
+                super(sourceArr, specimen);
+                this.collection = new HashSet<Object>(length);
         }
 }

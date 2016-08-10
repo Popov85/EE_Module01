@@ -22,24 +22,23 @@ public class App {
                 System.out.println("Remove: "+(float)set.removeTimeCalculate()/1000+" ms.");
 
                 System.out.println("---------------------ArrayList---------------------------------");
-                AnalysisArrayList list = new AnalysisArrayList(data, 90);
+                SpeedometerList list = new AnalysisArrayList(data, 90);
                 System.out.println("Populate: "+(float)list.populateTimeCalculate()/1000+" ms.");
                 System.out.println("Add: "+(float)list.addTimeCalculate()/1000+" ms.");
                 System.out.println("Contains: "+(float)list.containsTimeCalculate()/1000+" ms.");
+                System.out.println("Remove: "+(float)list.removeTimeCalculate()/1000+" ms.");
                 System.out.println("Get: "+(float)list.getTimeCalculate()/1000+" ms.");
                 System.out.println("Iterator add: "+(float)list.addIteratorTimeCalculate()/1000+" ms.");
                 System.out.println("Iterator remove: "+(float)list.removeIteratorTimeCalculate()/1000+" ms.");
 
-                 /*//System.out.println("Remove: "+(float)list.removeTimeCalculate()/1000+" ms.");
                 System.out.println("---------------------LinkedList---------------------------------");
                 list = new AnalysisLinkedList(data, 90);
                 System.out.println("Populate: "+(float)list.populateTimeCalculate()/1000+" ms.");
                 System.out.println("Add: "+(float)list.addTimeCalculate()/1000+" ms.");
                 System.out.println("Contains: "+(float)list.containsTimeCalculate()/1000+" ms.");
+                System.out.println("Remove: "+(float)list.removeTimeCalculate()/1000+" ms.");
                 System.out.println("Get: "+(float)list.getTimeCalculate()/1000+" ms.");
                 System.out.println("Iterator add: "+(float)list.addIteratorTimeCalculate()/1000+" ms.");
                 System.out.println("Iterator remove: "+(float)list.removeIteratorTimeCalculate()/1000+" ms.");
-                //System.out.println("Remove: "+(float)list.removeTimeCalculate()/1000+" ms.");
-                */
         }
 }

@@ -13,11 +13,10 @@ public abstract class AnalysisAbstractSet implements SpeedometerSet {
         protected Collection<Object> collection;
         protected Object specimen;
 
-        protected AnalysisAbstractSet(Object sourceArr[], Object specimen, Collection<Object> collection) {
+        protected AnalysisAbstractSet(Object sourceArr[], Object specimen) {
                 if (sourceArr.length==0 || sourceArr==null) throw new IllegalArgumentException();
                 this.sourceArr = sourceArr.clone();
                 this.length = sourceArr.length;
-                this.collection = collection;
                 this.specimen = specimen;
         }
 
@@ -26,16 +25,13 @@ public abstract class AnalysisAbstractSet implements SpeedometerSet {
                 long startTime = System.nanoTime();
                 collection.addAll(Arrays.asList(sourceArr));
                 long finishTime = System.nanoTime();
-                collection.clear();
                 return finishTime-startTime;
         }
 
         @Override
         public long addTimeCalculate() {
                 long startTime = System.nanoTime();
-                for (int i = 0; i < length; i++) {
-                        collection.add(sourceArr[i]);
-                }
+                collection.add(new Integer(92));
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
         }
@@ -43,9 +39,7 @@ public abstract class AnalysisAbstractSet implements SpeedometerSet {
         @Override
         public long removeTimeCalculate() {
                 long startTime = System.nanoTime();
-                for (int i = 0; i < length; i++) {
-                        collection.remove(sourceArr[i]);
-                }
+                collection.remove(new Integer(92));
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
         }

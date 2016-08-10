@@ -1,31 +1,32 @@
 package com.goit.g2popov.ee01;
 
 import java.util.Arrays;
-import java.util.Set;
+import java.util.Collection;
 
 /**
- * Created by Андрей on 09.08.2016.
+ * Set is a collection that contains NO duplicate elements!
  */
 public abstract class AnalysisAbstractSet implements SpeedometerSet {
 
         protected Object[] sourceArr;
         protected int length;
-        protected Set<Object> set;
+        protected Collection<Object> collection;
         protected Object specimen;
 
-        protected AnalysisAbstractSet(Object sourceArr[], Object specimen) {
+        protected AnalysisAbstractSet(Object sourceArr[], Object specimen, Collection<Object> collection) {
                 if (sourceArr.length==0 || sourceArr==null) throw new IllegalArgumentException();
                 this.sourceArr = sourceArr.clone();
                 this.length = sourceArr.length;
-                this.set = null;
+                this.collection = collection;
                 this.specimen = specimen;
         }
 
         @Override
         public long populateTimeCalculate() {
                 long startTime = System.nanoTime();
-                set.addAll(Arrays.asList(sourceArr));
+                collection.addAll(Arrays.asList(sourceArr));
                 long finishTime = System.nanoTime();
+                collection.clear();
                 return finishTime-startTime;
         }
 
@@ -33,7 +34,7 @@ public abstract class AnalysisAbstractSet implements SpeedometerSet {
         public long addTimeCalculate() {
                 long startTime = System.nanoTime();
                 for (int i = 0; i < length; i++) {
-                        set.add(sourceArr[i]);
+                        collection.add(sourceArr[i]);
                 }
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
@@ -43,7 +44,7 @@ public abstract class AnalysisAbstractSet implements SpeedometerSet {
         public long removeTimeCalculate() {
                 long startTime = System.nanoTime();
                 for (int i = 0; i < length; i++) {
-                        set.remove(i);
+                        collection.remove(sourceArr[i]);
                 }
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
@@ -52,7 +53,7 @@ public abstract class AnalysisAbstractSet implements SpeedometerSet {
         @Override
         public long containsTimeCalculate() {
                 long startTime = System.nanoTime();
-                set.contains(specimen);
+                collection.contains(specimen);
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
         }

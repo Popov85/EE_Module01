@@ -8,7 +8,6 @@ import java.util.TreeSet;
 public final class AnalysisTreeSet extends AnalysisAbstractSet {
 
         public AnalysisTreeSet(Object[] sourceArr, Object specimen) {
-                super(sourceArr, specimen);
-                this.set = new TreeSet<Object>();
+                super(sourceArr, specimen, new TreeSet<Object>());
         }
 }

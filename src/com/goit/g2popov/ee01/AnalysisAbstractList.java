@@ -9,17 +9,18 @@ import java.util.ListIterator;
 public abstract class AnalysisAbstractList extends AnalysisAbstractSet implements SpeedometerList {
 
         protected List<Object> list;
+        protected int position;
 
-        protected AnalysisAbstractList(Object[] sourceArr, Object specimen) {
+        protected AnalysisAbstractList(Object[] sourceArr, Object specimen, int position) {
                 super(sourceArr, specimen);
                 this.list = (List)collection;
+                this.position = position;
         }
 
         @Override
         public long getTimeCalculate() {
                 long startTime = System.nanoTime();
-                System.out.println(list.toString());
-                list.get(5);
+                list.get(position);
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
         }
@@ -28,7 +29,7 @@ public abstract class AnalysisAbstractList extends AnalysisAbstractSet implement
         public long addIteratorTimeCalculate() {
                 long startTime = System.nanoTime();
                 ListIterator<Object> iterator = list.listIterator();
-                iterator.add(new Integer(93));
+                iterator.add(specimen);
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
         }

@@ -5,40 +5,44 @@ package com.goit.g2popov.ee01;
  */
 public class App {
         public static void main(String[] args) {
-                Integer data[] = {10,20,30,40,50,60,71,80,90,91};
+
+                //Integer data[] = {10,20,30,40,50,60,71,80,90,91};
+                ArrayGenerator generator = new ArrayGenerator(10000);
+                Object[] data = generator.generate();
+                System.out.println(generator);
                 SpeedometerSet set = new AnalysisHashSet(data, 90);
 
                 System.out.println("---------------------HashSet---------------------------------");
-                System.out.println("Populate: "+(float)set.populateTimeCalculate()/1000+" ms.");
-                System.out.println("Add: "+(float)set.addTimeCalculate()/1000+" ms.");
-                System.out.println("Contains: "+(float)set.containsTimeCalculate()/1000+" ms.");
-                System.out.println("Remove: "+(float)set.removeTimeCalculate()/1000+" ms.");
+                System.out.println("Populate: "+(float)set.populateTimeCalculate()/1000000+" ms.");
+                System.out.println("Add: "+(float)set.addTimeCalculate()/1000000+" ms.");
+                System.out.println("Contains: "+(float)set.containsTimeCalculate()/1000000+" ms.");
+                System.out.println("Remove: "+(float)set.removeTimeCalculate()/1000000+" ms.");
 
                 System.out.println("---------------------TreeSet---------------------------------");
                 set = new AnalysisTreeSet(data, 90);
-                System.out.println("Populate: "+(float)set.populateTimeCalculate()/1000+" ms.");
-                System.out.println("Add: "+(float)set.addTimeCalculate()/1000+" ms.");
-                System.out.println("Contains: "+(float)set.containsTimeCalculate()/1000+" ms.");
-                System.out.println("Remove: "+(float)set.removeTimeCalculate()/1000+" ms.");
+                System.out.println("Populate: "+(float)set.populateTimeCalculate()/1000000+" ms.");
+                System.out.println("Add: "+(float)set.addTimeCalculate()/1000000+" ms.");
+                System.out.println("Contains: "+(float)set.containsTimeCalculate()/1000000+" ms.");
+                System.out.println("Remove: "+(float)set.removeTimeCalculate()/1000000+" ms.");
 
                 System.out.println("---------------------ArrayList---------------------------------");
-                SpeedometerList list = new AnalysisArrayList(data, 90);
-                System.out.println("Populate: "+(float)list.populateTimeCalculate()/1000+" ms.");
-                System.out.println("Add: "+(float)list.addTimeCalculate()/1000+" ms.");
-                System.out.println("Contains: "+(float)list.containsTimeCalculate()/1000+" ms.");
-                System.out.println("Remove: "+(float)list.removeTimeCalculate()/1000+" ms.");
-                System.out.println("Get: "+(float)list.getTimeCalculate()/1000+" ms.");
-                System.out.println("Iterator add: "+(float)list.addIteratorTimeCalculate()/1000+" ms.");
-                System.out.println("Iterator remove: "+(float)list.removeIteratorTimeCalculate()/1000+" ms.");
+                SpeedometerList list = new AnalysisArrayList(data, 90, 5);
+                System.out.println("Populate: "+(float)list.populateTimeCalculate()/1000000+" ms.");
+                System.out.println("Add: "+(float)list.addTimeCalculate()/1000000+" ms.");
+                System.out.println("Contains: "+(float)list.containsTimeCalculate()/1000000+" ms.");
+                System.out.println("Remove: "+(float)list.removeTimeCalculate()/1000000+" ms.");
+                System.out.println("Get: "+(float)list.getTimeCalculate()/1000000+" ms.");
+                System.out.println("Iterator add: "+(float)list.addIteratorTimeCalculate()/1000000+" ms.");
+                System.out.println("Iterator remove: "+(float)list.removeIteratorTimeCalculate()/1000000+" ms.");
 
                 System.out.println("---------------------LinkedList---------------------------------");
-                list = new AnalysisLinkedList(data, 90);
-                System.out.println("Populate: "+(float)list.populateTimeCalculate()/1000+" ms.");
-                System.out.println("Add: "+(float)list.addTimeCalculate()/1000+" ms.");
-                System.out.println("Contains: "+(float)list.containsTimeCalculate()/1000+" ms.");
-                System.out.println("Remove: "+(float)list.removeTimeCalculate()/1000+" ms.");
-                System.out.println("Get: "+(float)list.getTimeCalculate()/1000+" ms.");
-                System.out.println("Iterator add: "+(float)list.addIteratorTimeCalculate()/1000+" ms.");
-                System.out.println("Iterator remove: "+(float)list.removeIteratorTimeCalculate()/1000+" ms.");
+                list = new AnalysisLinkedList(data, 90, 5);
+                System.out.println("Populate: "+(float)list.populateTimeCalculate()/1000000+" ms.");
+                System.out.println("Add: "+(float)list.addTimeCalculate()/1000000+" ms.");
+                System.out.println("Contains: "+(float)list.containsTimeCalculate()/1000000+" ms.");
+                System.out.println("Remove: "+(float)list.removeTimeCalculate()/1000000+" ms.");
+                System.out.println("Get: "+(float)list.getTimeCalculate()/1000000+" ms.");
+                System.out.println("Iterator add: "+(float)list.addIteratorTimeCalculate()/1000000+" ms.");
+                System.out.println("Iterator remove: "+(float)list.removeIteratorTimeCalculate()/1000000+" ms.");
         }
 }

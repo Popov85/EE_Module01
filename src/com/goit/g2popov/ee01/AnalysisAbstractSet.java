@@ -31,7 +31,7 @@ public abstract class AnalysisAbstractSet implements SpeedometerSet {
         @Override
         public long addTimeCalculate() {
                 long startTime = System.nanoTime();
-                collection.add(new Integer(92));
+                collection.add(specimen);
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
         }
@@ -39,7 +39,7 @@ public abstract class AnalysisAbstractSet implements SpeedometerSet {
         @Override
         public long removeTimeCalculate() {
                 long startTime = System.nanoTime();
-                collection.remove(new Integer(92));
+                collection.remove(specimen);
                 long finishTime = System.nanoTime();
                 return finishTime-startTime;
         }

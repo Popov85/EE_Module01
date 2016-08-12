@@ -24,4 +24,6 @@ public abstract class AbstractAverageCalculator {
         }
 
         public abstract double[] avg() throws Exception;
+
+        public abstract String getType();
 }

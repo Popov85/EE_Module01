@@ -16,10 +16,12 @@ public class AverageCalculatorSet extends AbstractAverageCalculator {
         @Override
         public double[] avg() throws Exception {
                 SpeedometerSet set;
-                float populate = 0, add = 0, contains = 0, remove = 0;
+                double populate = 0, add = 0, contains = 0, remove = 0;
                 for (int i = 0; i < observations; i++) {
                         set = getCollection(type);
-                        populate += (double)set.populateTimeCalculate();
+                        double newPop = (double)set.populateTimeCalculate();
+                        populate += newPop;
+                        //System.out.println(newPop);
                         add += (double)set.addTimeCalculate();
                         contains += (double)set.containsTimeCalculate();
                         remove += (double)set.removeTimeCalculate();
@@ -45,6 +47,11 @@ public class AverageCalculatorSet extends AbstractAverageCalculator {
                                 throw new Exception("Wrong type!");
                         }
                 return set;
+        }
+
+        @Override
+        public String getType() {
+                return type==0 ? "HashSet":"TreeSet";
         }
 }
 

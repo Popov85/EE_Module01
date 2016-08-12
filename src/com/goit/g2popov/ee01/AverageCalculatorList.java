@@ -22,10 +22,11 @@ public class AverageCalculatorList extends AbstractAverageCalculator {
         public AverageCalculatorList(Object[] arr, int observations, int type, Object specimen) {
                 super(arr, observations, type, specimen);
         }
+
         @Override
         public double[] avg() throws Exception {
                 SpeedometerList list;
-                long populate = 0, add = 0, contains = 0, remove = 0, get = 0, iadd = 0, iremove = 0;
+                double populate = 0, add = 0, contains = 0, remove = 0, get = 0, iadd = 0, iremove = 0;
                 for (int i = 0; i < observations; i++) {
                         list = getCollection(type);
                         populate += (double)list.populateTimeCalculate();
@@ -59,5 +60,10 @@ public class AverageCalculatorList extends AbstractAverageCalculator {
                                 throw new Exception("Wrong type!");
                 }
                 return list;
+        }
+
+        @Override
+        public String getType() {
+                return type==0 ? "ArrayList":"LinkedList";
         }
 }

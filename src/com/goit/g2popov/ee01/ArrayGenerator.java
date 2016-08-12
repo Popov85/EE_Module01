@@ -14,7 +14,7 @@ public class ArrayGenerator {
                 this.capacity = capacity;
         }
 
-        public Object[] generate() {
+        public Integer[] generate() {
                 Random random = new Random();
                 Integer[] arr = new Integer[capacity];
                 for (int i = 0; i < capacity ; i++) {

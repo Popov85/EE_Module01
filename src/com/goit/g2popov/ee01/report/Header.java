@@ -17,17 +17,13 @@ public class Header {
 
         private Sheet sheet;
 
-        /*private CellStyle csTop = null;
-        private CellStyle csRight = null;
-        private CellStyle csLeft = null;
-        private CellStyle csTopLeft = null;
-        private CellStyle csTopRight = null;*/
+        private Document document;
 
-        public Header(Workbook workbook) {
+        public Header(Workbook workbook, Document document) {
                 this.workbook = workbook;
                 this.sheet = workbook.getSheet("Report");
+                this.document = document;
         }
-
 
         public void print() throws IOException, InvalidFormatException {
 
@@ -48,7 +44,6 @@ public class Header {
 
 
         private int insertHeaderInfo() {
-
                 int rowIndex = 2;
                 Row row = null;
                 Cell c = null;
@@ -57,29 +52,29 @@ public class Header {
                 row = sheet.createRow(rowIndex);
                 c = row.createCell(0);
                 c.setCellValue("Author:");
-                //c.setCellStyle(csTopLeft);
+                c.setCellStyle(document.getCsTopLeft());
                 c = row.createCell(1);
-                //c.setCellStyle(csTop);
+                c.setCellStyle(document.getCsTop());
                 c.setCellValue("Popov A.");
-                //c.setCellStyle(csTopRight);
+                c.setCellStyle(document.getCsTopRight());
 
                 rowIndex++;
                 row = sheet.createRow(rowIndex);
                 c = row.createCell(0);
                 c.setCellValue("Collections:");
-                //c.setCellStyle(csLeft);
+                c.setCellStyle(document.getCsLeft());
                 c = row.createCell(1);
                 c.setCellValue("[HashSet, TreeSet, ArrayList, LinkedList]");
-                //c.setCellStyle(csRight);
+                c.setCellStyle(document.getCsRight());
 
                 rowIndex++;
                 row = sheet.createRow(rowIndex);
                 c = row.createCell(0);
                 c.setCellValue("Observations:");
-                //c.setCellStyle(csLeft);
+                c.setCellStyle(document.getCsBottomLeft());
                 c = row.createCell(1);
                 c.setCellValue("100");
-                //c.setCellStyle(csRight);
+                c.setCellStyle(document.getCsBottomRight());
                 return 0;
         }
 }

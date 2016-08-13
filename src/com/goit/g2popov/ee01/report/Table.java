@@ -24,13 +24,16 @@ public class Table {
 
         private int position = 0;
 
-        Workbook workbook;
+        private Workbook workbook;
 
-        Sheet sheet;
+        private Sheet sheet;
 
-        public Table(Workbook workbook) throws IOException, InvalidFormatException {
+        private Document document;
+
+        public Table(Workbook workbook, Document document) throws IOException, InvalidFormatException {
                 this.workbook = workbook;
                 this.sheet = workbook.getSheet("Report");
+                this.document = document;
         }
 
         public void print(int arraySize, int number) throws Exception {
@@ -49,6 +52,7 @@ public class Table {
                 Row row = sheet.createRow(position);
                 Cell cell = row.createCell(0);
                 cell.setCellValue("Table #"+number+" (Capacity: " + arraySize+")");
+                cell.setCellStyle(document.getCsBold());
                 position++;
         }
 
@@ -70,6 +74,7 @@ public class Table {
                 Row row = sheet.getRow(counter++);
                 Cell cell = row.createCell(code+1);
                 cell.setCellValue(collection.getType());
+                cell.setCellStyle(document.getCsBold());
 
                 for(Double avg : suit){
                         row = sheet.getRow(counter++);

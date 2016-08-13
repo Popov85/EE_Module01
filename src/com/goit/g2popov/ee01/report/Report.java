@@ -18,6 +18,6 @@ public class Report implements Printer {
                 header.print();
                 table.print(10000,1);
                 table.print(100000,2);
-                /*table.print(1000000,3);*/
+                table.print(1000000,3);
         }
 }

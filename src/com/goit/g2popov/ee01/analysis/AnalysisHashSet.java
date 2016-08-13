@@ -1,4 +1,4 @@
-package com.goit.g2popov.ee01;
+package com.goit.g2popov.ee01.analysis;
 
 import java.util.HashSet;
 

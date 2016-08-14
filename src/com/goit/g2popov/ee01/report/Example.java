@@ -11,7 +11,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /**
- * Created by Андрей on 13.08.2016.
+ * Class Example is just an example of how to use Apache POI library
+ * @Author Andrey P.
  */
 public class Example {
                 private CellStyle cs = null;

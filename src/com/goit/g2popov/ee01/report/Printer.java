@@ -1,9 +1,14 @@
 package com.goit.g2popov.ee01.report;
 
 /**
- * Created by Андрей on 12.08.2016.
+ * Interface Printer defines a common interface for printing reports on Java collections
+ * @Author Andrey P.
  */
 public interface Printer {
 
+        /**
+         * Prints a report on Java collections
+         * @throws Exception
+         */
         void print() throws Exception;
 }

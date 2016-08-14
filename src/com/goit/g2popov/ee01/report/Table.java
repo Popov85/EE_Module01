@@ -16,7 +16,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * Created by Андрей on 12.08.2016.
+ * Class Table creates and prints a table with statistics on Java collections on MS Excel sheet
+ * @Author Andrey P.
  */
 public class Table {
 
@@ -28,12 +29,12 @@ public class Table {
 
         private Sheet sheet;
 
-        private Document document;
+        private Format format;
 
-        public Table(Workbook workbook, Document document) throws IOException, InvalidFormatException {
+        public Table(Workbook workbook, Format format) throws IOException, InvalidFormatException {
                 this.workbook = workbook;
                 this.sheet = workbook.getSheet("Report");
-                this.document = document;
+                this.format = format;
         }
 
         public void print(int arraySize, int number) throws Exception {
@@ -52,7 +53,7 @@ public class Table {
                 Row row = sheet.createRow(position);
                 Cell cell = row.createCell(0);
                 cell.setCellValue("Table #"+number+" (Capacity: " + arraySize+")");
-                cell.setCellStyle(document.getCsBold());
+                cell.setCellStyle(format.getCsBold());
                 position++;
         }
 
@@ -71,11 +72,12 @@ public class Table {
                 AbstractAverageCalculator collection = getCollection(code, data);
                 double suit[] = collection.avg();
                 int counter = position;
+                // First line of a table
                 Row row = sheet.getRow(counter++);
                 Cell cell = row.createCell(code+1);
                 cell.setCellValue(collection.getType());
-                cell.setCellStyle(document.getCsBold());
-
+                cell.setCellStyle(format.getCsBold());
+                // The following lines of the table
                 for(Double avg : suit){
                         row = sheet.getRow(counter++);
                         cell = row.createCell(code+1);
